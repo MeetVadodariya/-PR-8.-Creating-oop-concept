@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-2</title>
+</head>
+<body>
+    <div id="table-container"></div>
+
+    <script>
+        
+        let data = [
+            {
+                name: "jay",
+                email: "jay@gmail.com",
+                phone: "12345",
+            },
+            {
+                name: "ajay",
+                email: "ajay@gmail.com",
+                phone: "12345",
+            },
+            {
+                name: "vijay",
+                email: "vijay@gmail.com",
+                phone: "12345",
+            },
+            {
+                name: "ashish",
+                email: "ashish@gmail.com",
+                phone: "12345",
+            },
+        ];
+
+        function createTable(data) {
+            const table = document.createElement("table"); 
+            const headerRow = table.insertRow();
+
+           
+            const headers = ["Name", "Email", "Phone"];
+
+            headers.forEach((headerText) => {
+                const th = document.createElement("th");
+                th.textContent = headerText; 
+                headerRow.appendChild(th);
+            });
+
+            data.forEach((item) => {
+                const row = table.insertRow(); 
+                const { name, email, phone } = item;
+
+                const cell1 = row.insertCell();
+                cell1.textContent = name;
+
+                const cell2 = row.insertCell();
+                cell2.textContent = email;
+
+                const cell3 = row.insertCell();
+                cell3.textContent = phone;
+            });
+
+            return table; 
+        }
+
+        const container = document.getElementById("table-container");
+
+        const generatedTable = createTable(data); 
+        container.appendChild(generatedTable); 
+    </script>
+</body>
+</html>
