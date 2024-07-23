@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        class Student {
+    constructor(physics, chemistry, biology, mathematics, computer) {
+        this.physics = physics;
+        this.chemistry = chemistry;
+        this.biology = biology;
+        this.mathematics = mathematics;
+        this.computer = computer;
+    }
+
+    calculatePercentage() {
+        let totalMarks = this.physics + this.chemistry + this.biology + this.mathematics + this.computer;
+        let percentage = (totalMarks / 500) * 100;
+        return percentage.toFixed(2);
+    }
+
+    calculateGrade() {
+        let percentage = this.calculatePercentage();
+        let grade;
+
+        if (percentage >= 90) {
+            grade = 'Grade A';
+        } else if (percentage >= 80) {
+            grade = 'Grade B';
+        } else if (percentage >= 70) {
+            grade = 'Grade C';
+        } else if (percentage >= 60) {
+            grade = 'Grade D';
+        } else if (percentage >= 50) {
+            grade = 'Grade E';
+        } else {
+            grade = 'Grade F';
+        }
+
+        return grade;
+    }
+}
+
+let student1 = new Student(85, 90, 92, 88, 95);
+console.log("Percentage:", student1.calculatePercentage() + "%");
+console.log("Grade:", student1.calculateGrade());
+
+
+    </script>
+    
+</body>
+</html>
